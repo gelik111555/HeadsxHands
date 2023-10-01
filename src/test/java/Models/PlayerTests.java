@@ -34,14 +34,20 @@ public class PlayerTests {
 
     @Test
     public void testHealing30PercentWhenHealthBelow50Percent() {
-        int stratrHealth = 50;
+        int startHealth  = 50;
         // Создаем объект player для тестирования
-        Creature player = new Player(10, 5, stratrHealth, "Testplayer", 5);
-        player.setHealth(stratrHealth/2);
+        Creature player = new Player(10, 5, startHealth , "Testplayer", 5);
+        player.setHealth(startHealth /2);
         System.out.println("Текущий уровень здоровья: " + player.health);
-        // Попытка применить суперспособность исцеления в пятый раз
+
         ((Player) player).superHeal();
-        System.out.println("Yровень здоровья после исцеления: " + player.health);
+
+        int expectedHealedHealth = startHealth  / 2 + (int) (0.3 * startHealth);
+        int actualHealedHealth = player.getHealth();
+        System.out.println("Уровень здоровья после исцеления: " + actualHealedHealth);
+
+        // Проверка, что здоровье увеличено на 30%
+        assertEquals(expectedHealedHealth, actualHealedHealth);
 
     }
 }

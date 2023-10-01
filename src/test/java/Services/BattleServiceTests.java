@@ -52,7 +52,7 @@ public class BattleServiceTests {
         }
 
         // Проверьте ожидаемые результаты после успешной атаки
-        assertTrue(!playerPaladin.isAlive()); // Предполагаем, что здоровье не изменилось
+        assertTrue(!playerPaladin.isAlive());
     }
 
 }
