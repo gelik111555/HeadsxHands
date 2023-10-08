@@ -10,6 +10,7 @@ public class BattleService implements BattleInterface {
 
 
     // Метод для атаки другого существа
+    @Override
     public AttackResult attack(Creature attacker, Creature target) {
         // Рассчитываем количество бросков кубика
         int atac = attacker.getAttack();
@@ -34,6 +35,8 @@ public class BattleService implements BattleInterface {
             }
         }
         AttackResult attackResult;
+
+        // В результате мы решаем будет ли успешна атака или нет.
         if (attackSuccessful) {
             // Если удар успешен, выбираем произвольное значение из параметра Урон атакующего
             int damage = random.nextInt(attacker.getAttack()) + 1;
